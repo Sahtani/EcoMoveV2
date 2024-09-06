@@ -36,6 +36,7 @@ public class PartnerDAO {
     // Methode to create Partner :
 
     public void createPartner(Partner partner){
+       String resultMessage="";
         String sql = "INSERT INTO partners (id, company_name, commercial_contact, transport_type, " +
                 "geographical_zone, special_conditions, partner_status, creation_date) " +
                 "VALUES (?, ?, ?, CAST(? AS transportType), ?, ?, CAST(? AS partnerStatus), CURRENT_DATE)";
@@ -52,9 +53,11 @@ public class PartnerDAO {
             pstmt.setString(7, partner.getPartnerStatus().name());
 
 
-            int affectedRows = pstmt.executeUpdate();
-            if (affectedRows > 0) {
-                System.out.println("Partner added successfully.");
+            int rowsUpdated = pstmt.executeUpdate();
+            if (rowsUpdated > 0) {
+                resultMessage = "Partner added successfully.";
+            }else {
+                resultMessage = "No partner added.";
             }
 
         } catch (SQLException e) {
