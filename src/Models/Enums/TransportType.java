@@ -1,4 +1,4 @@
-package Entities.Enums;
+package Models.Enums;
 
 public enum TransportType {
 

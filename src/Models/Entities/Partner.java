@@ -1,15 +1,16 @@
-package Entities;
+package Models.Entities;
 
 
-import config.Db;
-import models.enums.PartnerStatus;
-import models.enums.TransportType;
+import Config.Db;
+
 
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import Models.Enums.TransportType;
+import Models.Enums.PartnerStatus;
 
 
     public class Partner {
