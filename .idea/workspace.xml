@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="344748c2-3d50-4786-8540-848c5225b5ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/postgresql_42_7_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Models/Entities/Contract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EcoMoveV2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/EcoMoveV2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Config/Db.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Config/Db.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Enums/ContractStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Enums/ContractStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Enums/DiscountType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Enums/DiscountType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Enums/OfferStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Enums/OfferStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Enums/PartnerStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Enums/PartnerStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Enums/TicketStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Enums/TicketStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Enums/TransportType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Enums/TransportType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Partner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Entities/Partner.java" afterDir="false" />
-    </list>
+    <list default="true" id="344748c2-3d50-4786-8540-848c5225b5ef" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
