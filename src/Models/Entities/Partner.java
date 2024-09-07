@@ -27,7 +27,13 @@ import Models.Enums.PartnerStatus;
         private List<Contract> contracts;
         private Connection connection;
 
-        public Partner (UUID id,String companyName,String commercialContact,String geographicalArea,String specialConditions,LocalDate creationDate,TransportType transportType,PartnerStatus partnerStatus ){
+
+        // constructor
+        public Partner() {
+            this.connection = Db.getInstance().getConnection();
+        }
+
+        public Partner(UUID id, String companyName, String commercialContact, String geographicalArea, String specialConditions, TransportType transportType, PartnerStatus partnerStatus) {
             this.id=id;
             this.companyName=companyName;
             this.commercialContact=commercialContact;
@@ -38,10 +44,6 @@ import Models.Enums.PartnerStatus;
             this.contracts=new ArrayList<>();
         }
 
-        // constructor
-        public Partner() {
-            this.connection = Db.getInstance().getConnection();
-        }
         //getters
         public  UUID getId() {
             return id;

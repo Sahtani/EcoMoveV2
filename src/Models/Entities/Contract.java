@@ -50,7 +50,7 @@ public class Contract {
             return startDate;
         }
 
-        public LocalDate getEndDate(LocalDate endDate) {
+        public LocalDate getEndDate() {
             return this.endDate;
         }
 

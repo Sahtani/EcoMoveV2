@@ -17,26 +17,28 @@ public class PartnerDAO {
        this.connection= Db.getInstance().getConnection();
    }
 
-   //Methode to diplay all partners :
-    public List<Partner> getAllPartners(){
+    //Methode to diplay all partners :
+    public ResultSet getAllPartners() {
+        String sql = "SELECT * FROM partners";
+        ResultSet resultPartners = null;
 
-       List<Partner> partners=new ArrayList<>();
-       String query="SELECT * FROM partners";
-       try {
-           PreparedStatement stmt = connection.prepareStatement(query);
-           ResultSet resultSet= stmt.executeQuery();
+        try {
 
-       } catch (SQLException e) {
-           e.printStackTrace();
-       }
-        return partners;
+            PreparedStatement stmt = connection.prepareStatement(sql);
 
+            resultPartners = stmt.executeQuery();
+
+        } catch (Exception exception) {
+            System.out.println("Statement Exception: " + exception.getMessage());
+            exception.printStackTrace();
+        }
+
+        return resultPartners;
     }
 
     // Methode to create Partner :
 
-    public void createPartner(Partner partner){
-       String resultMessage="";
+    public boolean create(Partner partner){
         String sql = "INSERT INTO partners (id, company_name, commercial_contact, transport_type, " +
                 "geographical_zone, special_conditions, partner_status, creation_date) " +
                 "VALUES (?, ?, ?, CAST(? AS transportType), ?, ?, CAST(? AS partnerStatus), CURRENT_DATE)";
@@ -53,16 +55,18 @@ public class PartnerDAO {
             pstmt.setString(7, partner.getPartnerStatus().name());
 
 
-            int rowsUpdated = pstmt.executeUpdate();
-            if (rowsUpdated > 0) {
-                resultMessage = "Partner added successfully.";
+            int rows = pstmt.executeUpdate();
+            String resultMessage;
+            if (rows > 0) {
+                System.out.println("Partner added successfully.");
             }else {
-                resultMessage = "No partner added.";
+                System.out.println("No partner added.");
             }
 
         } catch (SQLException e) {
             System.out.println("Error adding partner: " + e.getMessage());
         }
+        return false;
     }
 
     //Mehtode to update Partner :
@@ -96,7 +100,7 @@ public class PartnerDAO {
     }
     //Mehtode to delete partner :
 
-    public String deletePartner(UUID id) {
+    public String delete(UUID id) {
         String resultMessage;
         try {
             PreparedStatement pstmt = connection.prepareStatement("DELETE FROM partners WHERE id = ?");
@@ -114,5 +118,7 @@ public class PartnerDAO {
         }
         return resultMessage;
     }
+
+
 
 }
