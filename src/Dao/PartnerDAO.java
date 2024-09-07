@@ -38,7 +38,9 @@ public class PartnerDAO {
 
     // Methode to create Partner :
 
-    public boolean create(Partner partner){
+    public String create(Partner partner){
+
+        String resultMessage = "";
         String sql = "INSERT INTO partners (id, company_name, commercial_contact, transport_type, " +
                 "geographical_zone, special_conditions, partner_status, creation_date) " +
                 "VALUES (?, ?, ?, CAST(? AS transportType), ?, ?, CAST(? AS partnerStatus), CURRENT_DATE)";
@@ -56,22 +58,22 @@ public class PartnerDAO {
 
 
             int rows = pstmt.executeUpdate();
-            String resultMessage;
+
             if (rows > 0) {
-                System.out.println("Partner added successfully.");
+                resultMessage ="Partner added successfully.";
             }else {
-                System.out.println("No partner added.");
+                resultMessage ="No partner added.";
             }
 
         } catch (SQLException e) {
             System.out.println("Error adding partner: " + e.getMessage());
         }
-        return false;
+        return resultMessage;
     }
 
     //Mehtode to update Partner :
 
-    public String update(Partner partner) {
+    public boolean update(Partner partner) {
         String resultMessage = "";
         String query = "UPDATE partners SET company_name = ?, commercial_contact = ?, transport_type = ?, geographical_zone = ?, special_conditions = ?, partner_status = ? WHERE id = ?";
         try {
@@ -87,16 +89,16 @@ public class PartnerDAO {
             int rowsUpdated = pstmt.executeUpdate();
 
             if (rowsUpdated > 0) {
-                resultMessage = "Partner added successfully.";
+                System.out.println("Partner added successfully.");
             }else {
-                resultMessage = "No partner found with the provided UUID.";
+                System.out.println("No partner found with the provided UUID.");
             }
 
         } catch (SQLException e) {
             System.out.println("Error updating  partner: " + e.getMessage());
             e.printStackTrace();
         }
-        return resultMessage ;
+        return false ;
     }
     //Mehtode to delete partner :
 

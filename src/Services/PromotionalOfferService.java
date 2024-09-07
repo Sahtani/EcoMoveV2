@@ -22,7 +22,7 @@ public class PromotionalOfferService {
     public void createPromotionalOffer(String offerName, String description, LocalDate startDate, LocalDate endDate,
                                        DiscountType discountType, String conditions, OfferStatus offerStatus, UUID contractId) {
         PromotionalOffer promotionalOffer = new PromotionalOffer();
-        promotionalOffer.setId(UUID.randomUUID()); // Generate unique ID for promotional offer
+        promotionalOffer.setId(UUID.randomUUID());
         promotionalOffer.setOfferName(offerName);
         promotionalOffer.setDescription(description);
         promotionalOffer.setStartDate(startDate);
@@ -35,7 +35,7 @@ public class PromotionalOfferService {
         promotionalOfferDAO.create(promotionalOffer);
     }
 
-    // Get all promotional offers (for further processing without printing)
+    // Get all promotional offers
     public ResultSet getAllPromotions() {
         return promotionalOfferDAO.displayPromotions();
     }

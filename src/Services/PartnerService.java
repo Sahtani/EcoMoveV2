@@ -6,7 +6,6 @@ import Models.Enums.PartnerStatus;
 import Models.Enums.TransportType;
 
 import java.sql.ResultSet;
-import java.util.List;
 import java.util.UUID;
 
 public class PartnerService {
@@ -25,17 +24,17 @@ public class PartnerService {
 
     // add Partner :
 
-    public boolean addPartner(UUID id, String companyName, String commercialContact, String geographicalArea,
+    public String  addPartner(UUID id, String companyName, String commercialContact, String geographicalArea,
                               String specialConditions, TransportType transportType, PartnerStatus partnerStatus) {
         Partner partner=new Partner(id, companyName, commercialContact, geographicalArea, specialConditions, transportType,partnerStatus);
-        return partnerDAO.create(partner);
+       return partnerDAO.create(partner);
 
 
     }
 
     // update Partner :
 
-    public String updatePartner(UUID id, String companyName, String commercialContact, String geographicalArea,
+    public boolean updatePartner(UUID id, String companyName, String commercialContact, String geographicalArea,
                                 String specialConditions, TransportType transportType, PartnerStatus partnerStatus) {
         Partner partner = new Partner(id, companyName, commercialContact, geographicalArea, specialConditions, transportType, partnerStatus);
         return partnerDAO.update(partner);
