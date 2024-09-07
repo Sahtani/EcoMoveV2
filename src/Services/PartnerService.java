@@ -5,6 +5,7 @@ import Models.Entities.Partner;
 import Models.Enums.PartnerStatus;
 import Models.Enums.TransportType;
 
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,8 +18,9 @@ public class PartnerService {
 
     //Partner list :
 
-    public List<Partner> partnerList(){
-        return (List<Partner>) partnerDAO.getAllPartners();
+
+    public ResultSet partnerList() {
+        return partnerDAO.getAllPartners();
     }
 
     // add Partner :
