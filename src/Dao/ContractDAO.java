@@ -39,9 +39,10 @@ public class ContractDAO {
 
      //Insert a new contract :
 
-    public void create(Contract contract) {
+    public String create(Contract contract) {
         String sql = "INSERT INTO contracts (id, partner_id, start_date, end_date, special_rate, agreement_conditions, renewable, contract_status) VALUES (?, ?, ?, ?, ?, ?, ?,CAST(? AS statusContract))";
 
+        String resultMessage = null;
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setObject(1, contract.getId());
@@ -66,11 +67,12 @@ public class ContractDAO {
 
 
             pstmt.executeUpdate();
-            System.out.println("Contract stored successfully.");
+            resultMessage = "Contract stored successfully.";
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return resultMessage;
     }
 
     //update contract

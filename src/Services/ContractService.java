@@ -6,14 +6,13 @@ import Models.Enums.ContractStatus;
 
 import java.sql.ResultSet;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.UUID;
 
-public class ContarctService {
+public class ContractService {
 
     private ContractDAO contractDAO;
 
-    public ContarctService(){
+    public ContractService(){
         this.contractDAO=new ContractDAO();
     }
 
@@ -25,9 +24,9 @@ public class ContarctService {
 
     // add Contract :
 
-    public void createContract(UUID partnerId, LocalDate startDate, LocalDate endDate, float specialRate, String agreementConditions, boolean renewable, ContractStatus status) {
+    public String createContract(UUID partnerId, UUID id, LocalDate startDate, LocalDate endDate, float specialRate, String agreementConditions, boolean renewable, ContractStatus status) {
         Contract contract = new Contract();
-        contract.setId(UUID.randomUUID()); // Generate unique ID for contract
+        contract.setId(UUID.randomUUID());
         contract.setPartnerId(partnerId);
         contract.setStartDate(startDate);
         contract.setEndDate(endDate);
@@ -37,6 +36,8 @@ public class ContarctService {
         contract.setContractStatus(status);
 
         contractDAO.create(contract);
+
+        return agreementConditions;
     }
 
     // update contract :

@@ -15,6 +15,7 @@ public class PartnerUI {
     public void partnerMenu() {
         int choice;
         do {
+            allPartners();
             System.out.println("---------- Partner Menu ----------");
             System.out.println("1. Add Partner");
             System.out.println("2. Update Partner");
@@ -106,6 +107,7 @@ public class PartnerUI {
         }
     }
 
+    // display all partners :
     public void allPartners() {
         try {
             System.out.printf("-------------------------------------------------------------------------------------------------------------------------------------------------%n");

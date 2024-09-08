@@ -85,6 +85,7 @@
 
 
 import Services.PartnerService;
+import UI.ContractUI;
 import UI.PartnerUI;
 import Config.Db;
 
@@ -99,6 +100,7 @@ public class Main {
     public static void mainMenu() {
 
         PartnerUI partnerUI = new PartnerUI();
+        ContractUI contractUI = new ContractUI();
 
         Scanner scanner = new Scanner(System.in);
         int choice = 0;
@@ -119,7 +121,7 @@ public class Main {
             switch (choice) {
 
                   case 1 ->  partnerUI.partnerMenu();
-//                case 2 -> contractController.indexContract();
+                  case 2 -> contractUI.contractMenu();
 //                case 3 -> promotionController.indexPromotion();
 //                case 4 -> ticketController.indexTicket();
 

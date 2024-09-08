@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="344748c2-3d50-4786-8540-848c5225b5ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/UI/ContractConsoleUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/PartnerUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/PromotionalOfferConsoleUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dao/PartnerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dao/PartnerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dao/ContractDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dao/ContractDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/PartnerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/PartnerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/PromotionalOfferService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/PromotionalOfferService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/ContarctService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/ContractService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/ContractConsoleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/ContractUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/PartnerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/PartnerUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

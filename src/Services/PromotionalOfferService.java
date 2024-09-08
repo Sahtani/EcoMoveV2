@@ -42,7 +42,7 @@ public class PromotionalOfferService {
 
     // Update an existing promotional offer
     public boolean updatePromotionalOffer(UUID id, String offerName, String description, LocalDate startDate, LocalDate endDate,
-                                          DiscountType discountType, String conditions, OfferStatus offerStatus, UUID contractId) {
+                                          DiscountType discountType, String conditions, OfferStatus offerStatus) {
         PromotionalOffer promotionalOffer = new PromotionalOffer();
         promotionalOffer.setId(id);
         promotionalOffer.setOfferName(offerName);
@@ -61,5 +61,7 @@ public class PromotionalOfferService {
     public String deletePromotionalOffer(UUID id) {
         return promotionalOfferDAO.delete(id);
     }
+
+
 }
 
