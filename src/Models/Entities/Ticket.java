@@ -34,7 +34,7 @@ public class Ticket {
 
     // constructor
     public Ticket() {
-        this.connection = Db.getInstance().getConnection();
+
     }
 
 

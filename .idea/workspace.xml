@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="344748c2-3d50-4786-8540-848c5225b5ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Dao/TicketDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfaces/TicketDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/TicketDaoInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/Entities/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Entities/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/TicketServie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/TicketServie.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
