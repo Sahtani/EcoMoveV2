@@ -1,15 +1,17 @@
 package Dao;
 
 import Config.Db;
+import Interfaces.ClientDaoInterface;
 import Models.Entities.Client;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.UUID;
 
-public class ClientDAO {
+public class ClientDAO implements ClientDaoInterface {
 
     private Connection connection ;
 
@@ -18,7 +20,9 @@ public class ClientDAO {
         this.connection = Db.getInstance().getConnection();
     }
 
-    public boolean  Create(Client client){
+    @Override
+
+    public boolean  createClient(Client client){
 
         String query= "INSERT INTO clients (id, first_name, last_name, email, phone_number) VALUES (?, ?, ?, ?, ?);";
 
@@ -40,8 +44,8 @@ public class ClientDAO {
     }
 
     //connection client
-
-    public Client findClient(String firstName, String lastName, String email) {
+    @Override
+    public Optional<Client> findClient(String firstName, String lastName, String email) {
         String query = "SELECT id, first_name, last_name, email, phone_number FROM clients WHERE email = ? AND (first_name = ? AND last_name = ?)";
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -52,15 +56,16 @@ public class ClientDAO {
 
             try (ResultSet resultSet = stmt.executeQuery()) {
                 if (resultSet.next()) {
-                    return new Client(
+                    Client client = new Client(
                             (UUID) resultSet.getObject("id"),
                             resultSet.getString("first_name"),
                             resultSet.getString("last_name"),
                             resultSet.getString("email"),
                             resultSet.getInt("phone_number")
                     );
+                    return Optional.of(client);
                 } else {
-                    return null;
+                    return Optional.empty();
                 }
             }
         } catch (SQLException e) {

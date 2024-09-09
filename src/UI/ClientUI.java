@@ -6,6 +6,7 @@ import Utils.DataValidator;
 
 import java.sql.SQLException;
 import java.util.InputMismatchException;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -15,9 +16,10 @@ public class ClientUI {
     private Scanner scanner;
 
     // Constructor to initialize the service and scanner
-    public ClientUI() {
+
+    public ClientUI(ClientService clientService) {
         this.scanner = new Scanner(System.in);
-        this.clientService = new ClientService();
+        this.clientService = clientService;
     }
 
     // Method to display the menu
@@ -106,8 +108,8 @@ public class ClientUI {
             } while (!validPhone);
 
 
-            Client existingClient = clientService.loginClient(firstName, lastName, email);
-            if (existingClient != null) {
+            Optional<Client> existingClient = clientService.loginClient(firstName, lastName, email);
+            if (existingClient.isPresent()) {
 
                 System.out.println("Client already exists ,try to log in ");
                 return;
@@ -162,9 +164,9 @@ public class ClientUI {
                 }
             } while (!DataValidator.validateEmail(email));
 
-            Client client = clientService.loginClient(firstName, lastName, email);
+            Optional<Client> client = clientService.loginClient(firstName, lastName, email);
 
-            if (client != null) {
+            if (client.isPresent()) {
                 System.out.println("Client logged in successfully: ");
             } else {
                 System.out.println("Login failed. Client not found.");

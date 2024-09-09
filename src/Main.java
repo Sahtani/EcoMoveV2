@@ -84,6 +84,9 @@
 
 
 
+import Dao.ClientDAO;
+import Interfaces.ClientDaoInterface;
+import Services.ClientService;
 import Services.PartnerService;
 import UI.ClientUI;
 import UI.ContractUI;
@@ -102,7 +105,12 @@ public class Main {
 
         PartnerUI partnerUI = new PartnerUI();
         ContractUI contractUI = new ContractUI();
-        ClientUI clientUI = new ClientUI();
+        ClientDaoInterface clientDAO = new ClientDAO();
+        ClientService clientService = new ClientService(clientDAO);
+
+
+        ClientUI clientUI = new ClientUI(clientService);
+
 
         Scanner scanner = new Scanner(System.in);
         int choice = 0;
