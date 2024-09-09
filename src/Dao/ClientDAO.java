@@ -41,15 +41,16 @@ public class ClientDAO {
 
     //connection client
 
-    public Client findClient(String firstName, String lastName, String email){
-        String query = "SELECT id, first_name, last_name, email, phone_number FROM clients WHERE email= ? OR (first_name = ? OR last_name = ? ) " ;
-        try {
-            PreparedStatement stmt = connection.prepareStatement(query);
-            stmt.setString(1, firstName);
-            stmt.setString(2, lastName);
-            stmt.setString(3, email);
-            try {
-                ResultSet resultSet = stmt.executeQuery();
+    public Client findClient(String firstName, String lastName, String email) {
+        String query = "SELECT id, first_name, last_name, email, phone_number FROM clients WHERE email = ? AND (first_name = ? AND last_name = ?)";
+
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            // Set the parameters for the query
+            stmt.setString(1, email);
+            stmt.setString(2, firstName);
+            stmt.setString(3, lastName);
+
+            try (ResultSet resultSet = stmt.executeQuery()) {
                 if (resultSet.next()) {
                     return new Client(
                             (UUID) resultSet.getObject("id"),
@@ -61,13 +62,10 @@ public class ClientDAO {
                 } else {
                     return null;
                 }
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
             }
-
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Error finding client", e);
         }
-
     }
+
 }
