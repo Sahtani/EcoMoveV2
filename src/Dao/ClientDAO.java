@@ -18,8 +18,7 @@ public class ClientDAO {
 
     public boolean  Create(Client client){
 
-        String message ;
-        String query= "INSERT INTO your_table_name (id, first_name, last_name, email, phone_number) VALUES (?, ?, ?, ?, ?);";
+        String query= "INSERT INTO clients (id, first_name, last_name, email, phone_number) VALUES (?, ?, ?, ?, ?);";
 
         try {
            PreparedStatement stmt = connection.prepareStatement(query);

@@ -42,7 +42,7 @@ public class PromotionalOfferService {
 
     // Update an existing promotional offer
     public boolean updatePromotionalOffer(UUID id, String offerName, String description, LocalDate startDate, LocalDate endDate,
-                                          DiscountType discountType, String conditions, OfferStatus offerStatus) {
+                                          DiscountType discountType, String conditions, OfferStatus offerStatus,UUID contractId) {
         PromotionalOffer promotionalOffer = new PromotionalOffer();
         promotionalOffer.setId(id);
         promotionalOffer.setOfferName(offerName);

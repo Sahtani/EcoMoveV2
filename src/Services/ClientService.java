@@ -15,8 +15,8 @@ public class ClientService {
 
     // add Client :
 
-    public String createClient(UUID id, String firstName, String lastName, String email , int phoneNumber){
+    public boolean createClient(UUID id, String firstName, String lastName, String email , int phoneNumber){
         Client client = new Client(id , firstName, lastName, email, phoneNumber) ;
-        return String.valueOf(clientDAO.Create(client));
+        return clientDAO.Create(client);
     }
 }

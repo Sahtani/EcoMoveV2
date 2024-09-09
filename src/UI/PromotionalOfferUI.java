@@ -138,7 +138,11 @@ public class PromotionalOfferUI {
             System.out.println("Enter Updated Promotion Status: ");
             OfferStatus offerStatus = OfferStatus.valueOf(scanner.nextLine());
 
-            promotionalOfferService.updatePromotionalOffer(promotionId,offerName,description,startDate,endDate, discountType, conditions,offerStatus);
+            System.out.print("Enter Contract ID (UUID): ");
+            UUID contractId = UUID.fromString(scanner.nextLine().strip());
+
+
+            promotionalOfferService.updatePromotionalOffer(promotionId,offerName,description,startDate,endDate, discountType, conditions,offerStatus, contractId);
 
             System.out.println("Promotion updated successfully.");
         }
