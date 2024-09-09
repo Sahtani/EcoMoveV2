@@ -19,4 +19,10 @@ public class ClientService {
         Client client = new Client(id , firstName, lastName, email, phoneNumber) ;
         return clientDAO.Create(client);
     }
+
+    // login client :
+    public Client loginClient(String firstName, String lastName, String email){
+
+        return clientDAO.findClient(firstName, lastName,email);
+    }
 }

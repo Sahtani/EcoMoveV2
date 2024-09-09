@@ -1,6 +1,7 @@
 package UI;
 
 import Services.ClientService;
+import Utils.DataValidator;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -29,7 +30,7 @@ public class ClientUI {
             System.out.print("Choose an option: ");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -48,19 +49,58 @@ public class ClientUI {
     // Method to add a new client
     public void addClient() {
         boolean success = false;
+        String firstName, lastName, email;
+        int phoneNumber = 0;
+
         try {
             UUID id = UUID.randomUUID();
-            System.out.print("Enter first name: ");
-            String firstName = scanner.nextLine();
-            System.out.print("Enter last name: ");
-            String lastName = scanner.nextLine();
-            System.out.print("Enter email: ");
-            String email = scanner.nextLine();
-            System.out.print("Enter phone number: ");
-            int phoneNumber = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
 
-            // Use the boolean result
+
+            do {
+                System.out.print("Enter first name: ");
+                firstName = scanner.nextLine();
+                if (!DataValidator.validateName(firstName)) {
+                    System.out.println("Invalid first name. Please try again.");
+                }
+            } while (!DataValidator.validateName(firstName));
+
+
+            do {
+                System.out.print("Enter last name: ");
+                lastName = scanner.nextLine();
+                if (!DataValidator.validateName(lastName)) {
+                    System.out.println("Invalid last name. Please try again.");
+                }
+            } while (!DataValidator.validateName(lastName));
+
+
+            do {
+                System.out.print("Enter email: ");
+                email = scanner.nextLine();
+                if (!DataValidator.validateEmail(email)) {
+                    System.out.println("Invalid email. Please try again.");
+                }
+            } while (!DataValidator.validateEmail(email));
+
+
+            boolean validPhone = false;
+            do {
+                try {
+                    System.out.print("Enter phone number: ");
+                    phoneNumber = scanner.nextInt();
+                    scanner.nextLine();
+                    if (DataValidator.validatePhoneNumber(phoneNumber)) {
+                        validPhone = true;
+                    } else {
+                        System.out.println("Invalid phone number. Please enter a valid 10-digit number.");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a valid phone number.");
+                    scanner.nextLine();
+                }
+            } while (!validPhone);
+
+
             success = clientService.createClient(id, firstName, lastName, email, phoneNumber);
 
             if (success) {
@@ -68,11 +108,9 @@ public class ClientUI {
             } else {
                 System.out.println("Failed to add client.");
             }
-        } catch (InputMismatchException e) {
-            System.out.println("Invalid input. Please enter a valid phone number.");
-            scanner.nextLine(); // Clear invalid input
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
         }
     }
-
 
 }
