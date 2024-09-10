@@ -1,65 +1,49 @@
 package Services.Implementations;
 
 import Dao.Implementations.PromotionalOfferDAO;
+import Dao.Interfaces.TicketDaoInterface;
 import Models.Entities.PromotionalOffer;
 import Models.Enums.DiscountType;
 import Models.Enums.OfferStatus;
+import Services.Interfaces.PromoServiceInterface;
 
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
-public class PromotionalOfferService {
+public class PromotionalOfferService implements PromoServiceInterface {
 
 
     private PromotionalOfferDAO promotionalOfferDAO;
 
-    public PromotionalOfferService() {
-        this.promotionalOfferDAO = new PromotionalOfferDAO();
+
+    public PromotionalOfferService(PromotionalOfferDAO promotionalOfferDAO ){
+
+        this.promotionalOfferDAO = promotionalOfferDAO ;
     }
 
-    // Create a new promotional offer
-    public void createPromotionalOffer(String offerName, String description, LocalDate startDate, LocalDate endDate,
-                                       DiscountType discountType, String conditions, OfferStatus offerStatus, UUID contractId) {
-        PromotionalOffer promotionalOffer = new PromotionalOffer();
-        promotionalOffer.setId(UUID.randomUUID());
-        promotionalOffer.setOfferName(offerName);
-        promotionalOffer.setDescription(description);
-        promotionalOffer.setStartDate(startDate);
-        promotionalOffer.setEndDate(endDate);
-        promotionalOffer.setDiscountType(discountType);
-        promotionalOffer.setConditions(conditions);
-        promotionalOffer.setOfferStatus(offerStatus);
-        promotionalOffer.setContractId(contractId);
 
-        promotionalOfferDAO.create(promotionalOffer);
+
+    @Override
+    public boolean addPromotion(PromotionalOffer promotion) {
+        return promotionalOfferDAO.addPromotion(promotion);
+    }
+
+    @Override
+    public boolean updatePromotion(PromotionalOffer promotion) {
+        return promotionalOfferDAO.updatePromotion(promotion);
+    }
+
+    @Override
+    public boolean deletePromotion(UUID id) {
+        return promotionalOfferDAO.deletePromotion(id);
     }
 
     // Get all promotional offers
-    public ResultSet getAllPromotions() {
-        return promotionalOfferDAO.displayPromotions();
-    }
+    public List<PromotionalOffer> getAllPromotions() {
 
-    // Update an existing promotional offer
-    public boolean updatePromotionalOffer(UUID id, String offerName, String description, LocalDate startDate, LocalDate endDate,
-                                          DiscountType discountType, String conditions, OfferStatus offerStatus,UUID contractId) {
-        PromotionalOffer promotionalOffer = new PromotionalOffer();
-        promotionalOffer.setId(id);
-        promotionalOffer.setOfferName(offerName);
-        promotionalOffer.setDescription(description);
-        promotionalOffer.setStartDate(startDate);
-        promotionalOffer.setEndDate(endDate);
-        promotionalOffer.setDiscountType(discountType);
-        promotionalOffer.setConditions(conditions);
-        promotionalOffer.setOfferStatus(offerStatus);
-        promotionalOffer.setContractId(contractId);
-
-        return promotionalOfferDAO.update(promotionalOffer);
-    }
-
-    // Delete a promotional offer
-    public String deletePromotionalOffer(UUID id) {
-        return promotionalOfferDAO.delete(id);
+        return promotionalOfferDAO.getAllPromotions();
     }
 
 

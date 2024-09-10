@@ -1,16 +1,25 @@
 package UI;
 
+import Models.Entities.Contract;
+import Models.Entities.Ticket;
 import Services.Implementations.ContractService;
 import Models.Enums.ContractStatus;
-
+import Services.Interfaces.ContractServiceInterface;
+import Utils.DataValidator;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.Scanner;
 import java.util.UUID;
 
 public class ContractUI {
-    private final Scanner scanner = new Scanner(System.in);
-    private final ContractService contractService = new ContractService();
+    private final Scanner scanner ;
+    private final ContractServiceInterface contractService ;
+
+    public ContractUI(ContractServiceInterface contractService) {
+        this.contractService = contractService;
+        this.scanner =  new Scanner(System.in);
+    }
+
 
     public void contractMenu() {
         int choice;
@@ -42,12 +51,15 @@ public class ContractUI {
             System.out.print("Enter Partner ID (UUID): ");
             UUID partnerId = UUID.fromString(scanner.nextLine().strip());
 
-            System.out.print("Enter Start Date (YYYY-MM-DD): ");
-            LocalDate startDate = LocalDate.parse(scanner.nextLine().strip());
+            LocalDate startDate = DataValidator.promptForValidDate("Enter Start Date (YYYY-MM-DD): ", scanner);
 
-            System.out.print("Enter End Date (YYYY-MM-DD) or leave empty if not applicable: ");
-            String endDateInput = scanner.nextLine().strip();
-            LocalDate endDate = endDateInput.isEmpty() ? null : LocalDate.parse(endDateInput);
+            LocalDate endDate;
+            do {
+                endDate = DataValidator.promptForValidDate("Enter End Date (YYYY-MM-DD) or leave empty if not applicable: ", scanner);
+                if (endDate != null && !DataValidator.validateDate(startDate, endDate)) {
+                    System.out.println("Start date must be before end date.");
+                }
+            } while (endDate != null && !DataValidator.validateDate(startDate, endDate));
 
             System.out.print("Enter Special Rate: ");
             float specialRate = Float.parseFloat(scanner.nextLine().strip());
@@ -62,13 +74,15 @@ public class ContractUI {
             ContractStatus contractStatus = ContractStatus.valueOf(scanner.nextLine().strip().toLowerCase());
 
             UUID contractId = UUID.randomUUID();
-            String result = contractService.createContract(contractId, partnerId, startDate, endDate, specialRate, agreementConditions, renewable, contractStatus);
+            Contract contract = new Contract(contractId, partnerId, startDate, endDate, specialRate, agreementConditions, renewable, contractStatus);
+            String result = String.valueOf(contractService.addContract(contract));
 
             System.out.println(result);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
     // Method to update a contract
     public void updateContract() {
@@ -95,7 +109,18 @@ public class ContractUI {
             System.out.print("Enter New Contract Status (ongoing, completed, suspended): ");
             ContractStatus contractStatus = ContractStatus.valueOf(scanner.nextLine().strip().toUpperCase());
 
-            boolean success = contractService.updateContract(id, startDate, endDate, specialRate, agreementConditions, renewable, contractStatus);
+
+
+            Contract contract = new Contract();
+            contract.setId(id);
+            contract.setStartDate(startDate);
+            contract.setEndDate(endDate);
+            contract.setSpecialRate(specialRate);
+            contract.setAgreementConditions(agreementConditions);
+            contract.setRenewable(renewable);
+            contract.setContractStatus(contractStatus);
+
+            boolean success = contractService.updateContract(contract);
 
             if (success) {
                 System.out.println("Contract updated successfully.");
@@ -127,7 +152,7 @@ public class ContractUI {
                     "Contract ID", "Partner ID", "Start Date", "End Date", "Special Rate", "Agreement Conditions", "Renewable", "Status");
             System.out.printf("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%n");
 
-            ResultSet resultContracts = contractService.getAllContracts();
+            ResultSet resultContracts = (ResultSet) contractService.getAllContracts();
 
             while (resultContracts.next()) {
                 System.out.printf("# %-36s | %-36s | %-10s | %-10s | %-12.2f | %-30s | %-10b | %-18s #%n",

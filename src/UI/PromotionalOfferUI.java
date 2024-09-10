@@ -1,11 +1,17 @@
 package UI;
 
+import Models.Entities.PromotionalOffer;
 import Models.Enums.DiscountType;
 import Models.Enums.OfferStatus;
 import Services.Implementations.PromotionalOfferService;
+import Services.Implementations.TicketService;
+import Services.Interfaces.ClientServiceInterface;
+import Services.Interfaces.PromoServiceInterface;
+import Services.Interfaces.TicketServiceInterface;
 
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -13,12 +19,14 @@ public class PromotionalOfferUI {
 
 
         private Scanner scanner;
-        private PromotionalOfferService promotionalOfferService;
+        private PromoServiceInterface promotionalOfferService;
 
-        public PromotionalOfferUI() {
+
+        public PromotionalOfferUI(PromoServiceInterface promotionalOfferService) {
             this.scanner = new Scanner(System.in);
-            this.promotionalOfferService = new PromotionalOfferService();
+            this.promotionalOfferService = promotionalOfferService ;
         }
+
 
         // Main menu method
         public void start() {
@@ -67,18 +75,19 @@ public class PromotionalOfferUI {
                         "UUID id", "Offer Name", "Description", "Start Date", "End Date", "Discount Type", "Conditions", "Contract ID", "Offer Status");
                 System.out.printf("-------------------------------------------------------------------------------------------------------------------------------------------------------------%n");
 
-                ResultSet resultPromotions = promotionalOfferService.getAllPromotions();
-                while (resultPromotions.next()) {
+                List<PromotionalOffer> resultPromotions = promotionalOfferService.getAllPromotions();
+
+                for (PromotionalOffer offer : resultPromotions) {
                     System.out.printf("# %-36s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-36s | %-20s #%n",
-                            resultPromotions.getString("id"),
-                            resultPromotions.getString("offername"),
-                            resultPromotions.getString("description"),
-                            resultPromotions.getDate("startdate").toString(),
-                            resultPromotions.getDate("enddate") != null ? resultPromotions.getDate("enddate").toString() : "Indefinite",
-                            resultPromotions.getString("discounttype"),
-                            resultPromotions.getString("conditions"),
-                            resultPromotions.getString("contractid"),
-                            resultPromotions.getString("offerstatus"));
+                            offer.getId(),
+                            offer.getOfferName(),
+                            offer.getDescription(),
+                            offer.getStartDate() != null ? offer.getStartDate().toString() : "N/A",
+                            offer.getEndDate() != null ? offer.getEndDate().toString() : "Indefinite",
+                            offer.getDiscountType(),
+                            offer.getConditions(),
+                            offer.getContractId(),
+                            offer.getOfferStatus());
                 }
 
                 System.out.printf("-------------------------------------------------------------------------------------------------------------------------------------------------------------%n");
@@ -101,21 +110,33 @@ public class PromotionalOfferUI {
             System.out.println("Enter End Date (YYYY-MM-DD): ");
             LocalDate endDate = LocalDate.parse(scanner.nextLine());
             System.out.println("Enter Discount Type: ");
-            DiscountType discountType = DiscountType.valueOf(scanner.nextLine());
+            DiscountType discountType = DiscountType.valueOf(scanner.nextLine().toUpperCase());
+            System.out.println("Enter Reduction Value: ");
+            double reductionValue = Double.parseDouble(scanner.nextLine());
             System.out.println("Enter Conditions: ");
             String conditions = scanner.nextLine();
             System.out.println("Enter Promotion Status: ");
-            OfferStatus offerStatus = OfferStatus.valueOf(scanner.nextLine());
+            OfferStatus offerStatus = OfferStatus.valueOf(scanner.nextLine().toUpperCase());
             System.out.print("Enter Contract ID (UUID): ");
             UUID contractId = UUID.fromString(scanner.nextLine().strip());
 
-            promotionalOfferService.createPromotionalOffer(offerName,description,startDate,endDate, discountType, conditions,offerStatus,contractId);
+            PromotionalOffer promotion = new PromotionalOffer();
+            promotion.setOfferName(offerName);
+            promotion.setDescription(description);
+            promotion.setStartDate(startDate);
+            promotion.setEndDate(endDate);
+            promotion.setDiscountType(discountType);
+            promotion.setReductionValue(reductionValue);
+            promotion.setConditions(conditions);
+            promotion.setOfferStatus(offerStatus);
+            promotion.setContractId(contractId);
+
+            promotionalOfferService.addPromotion(promotion);
             System.out.println("Promotion added successfully.");
+        }
 
 
-            }
-
-        // Method to update an existing promotion
+    // Method to update an existing promotion
         private void updatePromotion() {
             System.out.println("Enter the ID of the promotion to update: ");
             UUID promotionId = UUID.fromString(scanner.nextLine().strip());

@@ -17,7 +17,6 @@ public class ClientUI {
 
     // Constructor
 
-
     public ClientUI(ClientServiceInterface clientService) {
         this.scanner = new Scanner(System.in);
         this.clientService = clientService;

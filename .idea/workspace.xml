@@ -5,10 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="344748c2-3d50-4786-8540-848c5225b5ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Services/Interfaces/ContractServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Dao/Interfaces/PromoDaoInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/Interfaces/PromoServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Utils/ContractValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dao/Implementations/ContractDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dao/Implementations/ContractDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dao/Interfaces/ContractDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dao/Interfaces/ContractDaoInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dao/Implementations/PromotionalOfferDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dao/Implementations/PromotionalOfferDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/Entities/PromotionalOffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Entities/PromotionalOffer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Implementations/ContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Implementations/ContractService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Implementations/PromotionalOfferService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Implementations/PromotionalOfferService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Interfaces/ContractServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Interfaces/ContractServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/ClientUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/ClientUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/ContractUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/ContractUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/PromotionalOfferUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/PromotionalOfferUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utils/DataValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/DataValidator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,16 +71,5 @@
       <updated>1725618076588</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/UI/ContractUI.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -18,6 +18,7 @@ public class PromotionalOffer {
     private LocalDate startDate;
     private LocalDate endDate;
     private DiscountType discountType;
+    private float reductionValue ;
     private String conditions;
     private OfferStatus offerStatus;
     private UUID contractId;
@@ -25,17 +26,18 @@ public class PromotionalOffer {
 
     // Constructor
     public PromotionalOffer(UUID id, String offerName, String description, LocalDate startDate, LocalDate endDate,
-                            DiscountType discountType, String conditions, OfferStatus offerStatus, UUID contractId) {
+                            DiscountType discountType,float reductionValue,  String conditions, OfferStatus offerStatus, UUID contractId) {
         this.id = id;
         this.offerName = offerName;
         this.description = description;
         this.startDate = startDate;
         this.endDate = endDate;
         this.discountType = discountType;
+        this.reductionValue = reductionValue ;
         this.conditions = conditions;
         this.offerStatus = offerStatus;
         this.contractId = contractId;
-        this.connection = Db.getInstance().getConnection(); // Assuming Db is a singleton managing the connection
+        this.connection = Db.getInstance().getConnection();
     }
 
     // Default constructor
@@ -93,6 +95,13 @@ public class PromotionalOffer {
         this.discountType = discountType;
     }
 
+    public float getReductionValue(){
+        return reductionValue ;
+    }
+
+    public void setReductionValue(float reductionValue){
+        this.reductionValue = reductionValue ;
+    }
     public String getConditions() {
         return conditions;
     }

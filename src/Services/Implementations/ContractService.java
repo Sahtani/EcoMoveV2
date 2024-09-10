@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class ContractService {
+public class ContractService  {
 
     private ContractDAO contractDAO;
 
@@ -19,7 +19,7 @@ public class ContractService {
     //Contract list :
 
     public ResultSet getAllContracts() {
-        return contractDAO.getAllContracts();
+        return (ResultSet) contractDAO.getAllContracts();
     }
 
     // add Contract :
@@ -35,7 +35,7 @@ public class ContractService {
         contract.setRenewable(renewable);
         contract.setContractStatus(status);
 
-        contractDAO.create(contract);
+        contractDAO.addContract(contract);
 
         return agreementConditions;
     }
@@ -52,12 +52,12 @@ public class ContractService {
         contract.setRenewable(renewable);
         contract.setContractStatus(status);
 
-        return contractDAO.update(contract);
+        return contractDAO.updateContract(contract);
     }
 
     // Delete a contract
-    public String deleteContract(UUID id) {
-        return contractDAO.delete(id);
+    public boolean deleteContract(UUID id) {
+        return contractDAO.deleteContract(id);
     }
 
 

@@ -89,7 +89,9 @@ import Dao.Implementations.TicketDAO;
 import Dao.Interfaces.ClientDaoInterface;
 import Dao.Interfaces.TicketDaoInterface;
 import Services.Implementations.ClientService;
+import Services.Implementations.ContractService;
 import Services.Implementations.TicketService;
+import Services.Interfaces.ContractServiceInterface;
 import UI.ClientUI;
 import UI.ContractUI;
 import UI.PartnerUI;
@@ -105,7 +107,8 @@ public class Main {
     public static void mainMenu() {
 
         PartnerUI partnerUI = new PartnerUI();
-        ContractUI contractUI = new ContractUI();
+        ContractServiceInterface contractServiceInterface = (ContractServiceInterface) new ContractService();
+        ContractUI contractUI = new ContractUI(contractServiceInterface);
         ClientDaoInterface clientDAO = new ClientDAO();
         ClientService clientService = new ClientService(clientDAO);
         TicketDaoInterface ticketDao = new TicketDAO() ;
