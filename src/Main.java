@@ -84,16 +84,17 @@
 
 
 
-import Dao.ClientDAO;
-import Interfaces.ClientDaoInterface;
-import Services.ClientService;
-import Services.PartnerService;
+import Dao.Implementations.ClientDAO;
+import Dao.Implementations.TicketDAO;
+import Dao.Interfaces.ClientDaoInterface;
+import Dao.Interfaces.TicketDaoInterface;
+import Services.Implementations.ClientService;
+import Services.Implementations.TicketServie;
 import UI.ClientUI;
 import UI.ContractUI;
 import UI.PartnerUI;
-import Config.Db;
+import UI.TicketUI;
 
-import java.sql.Connection;
 import java.util.Scanner;
 
 public class Main {
@@ -107,6 +108,10 @@ public class Main {
         ContractUI contractUI = new ContractUI();
         ClientDaoInterface clientDAO = new ClientDAO();
         ClientService clientService = new ClientService(clientDAO);
+        TicketDaoInterface ticketDao = new TicketDAO() ;
+        TicketServie ticketServie = new TicketServie(ticketDao) ;
+        TicketUI ticketUI = new TicketUI(ticketServie) ;
+
 
 
         ClientUI clientUI = new ClientUI(clientService);
@@ -116,7 +121,7 @@ public class Main {
         int choice = 0;
         do {
             System.out.printf("---------------------------------------------%n");
-            System.out.printf("|          EcoMove System        |%n");
+            System.out.printf("|          EcoMove System                   |%n");
             System.out.printf("---------------------------------------------%n");
             System.out.printf("|                   Welcome                 |%n");
             System.out.printf("---------------------------------------------%n");
@@ -133,7 +138,7 @@ public class Main {
                   case 1 ->  partnerUI.partnerMenu();
                   case 2 -> contractUI.contractMenu();
                   case 3 -> clientUI.displayMenu();
-//                case 4 -> ticketController.indexTicket();
+                  case 4 -> ticketUI.indexTicket();
 
                 case 0 -> {
                     System.out.printf("---------------------------------------------%n");

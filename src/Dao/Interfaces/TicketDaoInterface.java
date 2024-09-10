@@ -1,4 +1,4 @@
-package Interfaces;
+package Dao.Interfaces;
 
 import Models.Entities.Ticket;
 

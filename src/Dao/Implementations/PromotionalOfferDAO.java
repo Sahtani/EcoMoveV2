@@ -1,4 +1,4 @@
-package Dao;
+package Dao.Implementations;
 
 import Config.Db;
 import Models.Entities.PromotionalOffer;

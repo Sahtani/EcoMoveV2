@@ -1,10 +1,9 @@
 package UI;
 
 import Models.Entities.Client;
-import Services.ClientService;
+import Services.Implementations.ClientService;
 import Utils.DataValidator;
 
-import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Optional;
 import java.util.Scanner;

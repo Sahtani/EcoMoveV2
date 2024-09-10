@@ -1,6 +1,6 @@
-package Services;
+package Services.Implementations;
 
-import Interfaces.ClientDaoInterface;
+import Dao.Interfaces.ClientDaoInterface;
 import Models.Entities.Client;
 
 import java.util.Optional;

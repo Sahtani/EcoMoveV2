@@ -1,9 +1,8 @@
 package UI;
 
-import Dao.PromotionalOfferDAO;
 import Models.Enums.DiscountType;
 import Models.Enums.OfferStatus;
-import Services.PromotionalOfferService;
+import Services.Implementations.PromotionalOfferService;
 
 import java.sql.ResultSet;
 import java.time.LocalDate;

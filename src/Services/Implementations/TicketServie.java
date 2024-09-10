@@ -1,6 +1,6 @@
-package Services;
+package Services.Implementations;
 
-import Interfaces.TicketDaoInterface;
+import Dao.Interfaces.TicketDaoInterface;
 import Models.Entities.Ticket;
 
 public class TicketServie {
@@ -12,8 +12,8 @@ public class TicketServie {
     }
 
     // add ticket :
-    public boolean addTicket(){
-        Ticket ticket = new Ticket() ;
+    public boolean addTicket(Ticket ticket){
+//        Ticket ticket = new Ticket() ;
         return ticketDaoInterface.createTicket(ticket);
     }
 }

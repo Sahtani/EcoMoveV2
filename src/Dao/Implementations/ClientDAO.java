@@ -1,7 +1,7 @@
-package Dao;
+package Dao.Implementations;
 
 import Config.Db;
-import Interfaces.ClientDaoInterface;
+import Dao.Interfaces.ClientDaoInterface;
 import Models.Entities.Client;
 
 import java.sql.Connection;

@@ -1,7 +1,7 @@
-package Dao;
+package Dao.Implementations;
 
 import Config.Db;
-import Interfaces.TicketDaoInterface;
+import Dao.Interfaces.TicketDaoInterface;
 import Models.Entities.Ticket;
 
 import java.sql.Connection;

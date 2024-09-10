@@ -1,6 +1,6 @@
-package Services;
+package Services.Implementations;
 
-import Dao.PartnerDAO;
+import Dao.Implementations.PartnerDAO;
 import Models.Entities.Partner;
 import Models.Enums.PartnerStatus;
 import Models.Enums.TransportType;

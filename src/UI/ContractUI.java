@@ -1,6 +1,6 @@
 package UI;
 
-import Services.ContractService;
+import Services.Implementations.ContractService;
 import Models.Enums.ContractStatus;
 
 import java.sql.ResultSet;

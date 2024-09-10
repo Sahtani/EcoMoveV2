@@ -1,6 +1,6 @@
 package UI;
 
-import Services.PartnerService;
+import Services.Implementations.PartnerService;
 import Models.Enums.PartnerStatus;
 import Models.Enums.TransportType;
 

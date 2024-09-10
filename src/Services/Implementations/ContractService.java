@@ -1,6 +1,6 @@
-package Services;
+package Services.Implementations;
 
-import Dao.ContractDAO;
+import Dao.Implementations.ContractDAO;
 import Models.Entities.Contract;
 import Models.Enums.ContractStatus;
 

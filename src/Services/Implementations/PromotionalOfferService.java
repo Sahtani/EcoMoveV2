@@ -1,6 +1,6 @@
-package Services;
+package Services.Implementations;
 
-import Dao.PromotionalOfferDAO;
+import Dao.Implementations.PromotionalOfferDAO;
 import Models.Entities.PromotionalOffer;
 import Models.Enums.DiscountType;
 import Models.Enums.OfferStatus;
