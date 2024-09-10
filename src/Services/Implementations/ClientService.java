@@ -2,29 +2,31 @@ package Services.Implementations;
 
 import Dao.Interfaces.ClientDaoInterface;
 import Models.Entities.Client;
+import Services.Interfaces.ClientServiceInterface;
 
 import java.util.Optional;
 import java.util.UUID;
 
-public class ClientService {
+public class ClientService implements ClientServiceInterface {
 
+    private ClientDaoInterface clientDao;
 
-    private ClientDaoInterface clientDaoInterface ;
-
-    public ClientService(ClientDaoInterface clientDaoInterface){
-        this.clientDaoInterface = clientDaoInterface;
+    public ClientService(ClientDaoInterface clientDao) {
+        this.clientDao = clientDao;
     }
 
-    // add Client :
 
-    public boolean createClient(UUID id, String firstName, String lastName, String email , int phoneNumber){
-        Client client = new Client(id , firstName, lastName, email, phoneNumber) ;
-        return clientDaoInterface.createClient(client);
+
+
+    @Override
+    public boolean addClient(Client client) {
+        return clientDao.addClient(client);
     }
 
     // login client :
     public Optional<Client> loginClient(String firstName, String lastName, String email){
 
-        return clientDaoInterface.findClient(firstName, lastName,email);
+        return clientDao.findClient(firstName, lastName,email);
     }
+
 }

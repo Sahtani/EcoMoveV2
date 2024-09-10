@@ -2,6 +2,7 @@ package UI;
 
 import Models.Entities.Client;
 import Services.Implementations.ClientService;
+import Services.Interfaces.ClientServiceInterface;
 import Utils.DataValidator;
 
 import java.util.InputMismatchException;
@@ -11,15 +12,17 @@ import java.util.UUID;
 
 public class ClientUI {
 
-    private ClientService clientService;
+    private ClientServiceInterface clientService;
     private Scanner scanner;
 
-    // Constructor to initialize the service and scanner
+    // Constructor
 
-    public ClientUI(ClientService clientService) {
+
+    public ClientUI(ClientServiceInterface clientService) {
         this.scanner = new Scanner(System.in);
         this.clientService = clientService;
     }
+
 
     // Method to display the menu
     public void displayMenu() {
@@ -61,33 +64,20 @@ public class ClientUI {
         try {
             UUID id = UUID.randomUUID();
 
-
             do {
                 System.out.print("Enter first name: ");
                 firstName = scanner.nextLine();
-                if (!DataValidator.validateName(firstName)) {
-                    System.out.println("Invalid first name. Please try again.");
-                }
             } while (!DataValidator.validateName(firstName));
-
 
             do {
                 System.out.print("Enter last name: ");
                 lastName = scanner.nextLine();
-                if (!DataValidator.validateName(lastName)) {
-                    System.out.println("Invalid last name. Please try again.");
-                }
             } while (!DataValidator.validateName(lastName));
-
 
             do {
                 System.out.print("Enter email: ");
                 email = scanner.nextLine();
-                if (!DataValidator.validateEmail(email)) {
-                    System.out.println("Invalid email. Please try again.");
-                }
             } while (!DataValidator.validateEmail(email));
-
 
             boolean validPhone = false;
             do {
@@ -106,32 +96,31 @@ public class ClientUI {
                 }
             } while (!validPhone);
 
+            Client client = new Client();
+            client.setId(id);
+            client.setFirstName(firstName);
+            client.setLastName(lastName);
+            client.setEmail(email);
+            client.setPhoneNumber(phoneNumber);
 
             Optional<Client> existingClient = clientService.loginClient(firstName, lastName, email);
             if (existingClient.isPresent()) {
-
-                System.out.println("Client already exists ,try to log in ");
+                System.out.println("Client already exists, try to log in.");
                 return;
-            }else {
-                System.out.println(existingClient);
-                boolean success = clientService.createClient(id, firstName, lastName, email, phoneNumber);
+            } else {
+                boolean success = clientService.addClient(client);
                 if (success) {
                     System.out.println("Client added successfully.");
                 } else {
                     System.out.println("Failed to add client.");
                 }
             }
-
-
-
         } catch (Exception e) {
-            System.out.println("An error occurred: " + e.getMessage());
+            System.out.println("error : " + e.getMessage());
         }
     }
 
-
-
-    //login client :
+            //login client :
     public void loginClient(){
 
         String firstName, lastName, email;

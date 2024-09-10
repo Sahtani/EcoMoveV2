@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface ClientDaoInterface {
 
-    boolean createClient(Client client);
+    boolean addClient(Client client);
 
     Optional<Client> findClient(String firstName, String lastName, String email);
 

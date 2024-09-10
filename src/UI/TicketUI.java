@@ -3,8 +3,9 @@ package UI;
 import Models.Entities.Ticket;
 import Models.Enums.TicketStatus;
 import Models.Enums.TransportType;
-import Services.Implementations.TicketServie;
-
+import Services.Implementations.TicketService;
+import Services.Interfaces.TicketServiceInterface;
+import Utils.TicketValidator;
 import java.sql.Timestamp;
 import java.util.Scanner;
 import java.util.UUID;
@@ -12,9 +13,9 @@ import java.util.UUID;
 public class TicketUI {
 
     private Scanner scanner;
-    private final TicketServie ticketServie    ;
+    private final TicketServiceInterface ticketServie    ;
 
-    public TicketUI(TicketServie ticketServie) {
+    public TicketUI(TicketService ticketServie) {
         this.scanner = new Scanner(System.in);
         this.ticketServie = ticketServie;
     }
@@ -46,26 +47,58 @@ public class TicketUI {
         }
     }
     public void addTicket() {
+        String transportType;
+        float purchasePrice = 0;
+        float salePrice = 0;
+        String saleDate;
+        String ticketStatus;
+        UUID contractId;
+
         try {
             System.out.println("Enter ticket details:");
 
-            System.out.print("Transport Type (AVION, BUS, TRAIN): ");
-            String transportType = scanner.nextLine().strip().toUpperCase();
+            do {
+                System.out.print("Transport Type (AVION, BUS, TRAIN): ");
+                transportType = scanner.nextLine().strip().toUpperCase();
+            } while (!TicketValidator.isValidTransportType(transportType));
 
-            System.out.print("Purchase Price: ");
-            float purchasePrice = Float.parseFloat(scanner.nextLine().strip());
+            do {
+                System.out.print("Purchase Price: ");
+                try {
+                    purchasePrice = Float.parseFloat(scanner.nextLine().strip());
+                } catch (NumberFormatException e) {
+                    purchasePrice = -1;
+                }
+            } while (!TicketValidator.isValidPurchasePrice(purchasePrice));
 
-            System.out.print("Sale Price: ");
-            float salePrice = Float.parseFloat(scanner.nextLine().strip());
+            do {
+                System.out.print("Sale Price: ");
+                try {
+                    salePrice = Float.parseFloat(scanner.nextLine().strip());
+                } catch (NumberFormatException e) {
+                    salePrice = -1;
+                }
+            } while (!TicketValidator.isValidSalePrice(salePrice));
 
-            System.out.print("Sale Date (YYYY-MM-DD HH:MM:SS): ");
-            String saleDate = scanner.nextLine().strip();
+            do {
+                System.out.print("Sale Date (YYYY-MM-DD HH:MM:SS): ");
+                saleDate = scanner.nextLine().strip();
+            } while (!TicketValidator.isValidSaleDate(saleDate));
 
-            System.out.print("Ticket Status ( SOLD,CANCELED,PENDING): ");
-            String ticketStatus = scanner.nextLine().strip().toLowerCase();
+            do {
+                System.out.print("Ticket Status (SOLD, CANCELED, PENDING): ");
+                ticketStatus = scanner.nextLine().strip().toUpperCase();
+            } while (!TicketValidator.isValidTicketStatus(ticketStatus));
 
-            System.out.print("Contract ID (UUID): ");
-            UUID contractId = UUID.fromString(scanner.nextLine().strip());
+            do {
+                System.out.print("Contract ID (UUID): ");
+                String contractIdStr = scanner.nextLine().strip();
+                if (TicketValidator.isValidContractId(contractIdStr)) {
+                    contractId = UUID.fromString(contractIdStr);
+                } else {
+                    contractId = null;
+                }
+            } while (contractId == null);
 
             Ticket ticket = new Ticket();
             ticket.setTransportType(TransportType.valueOf(transportType));
@@ -87,4 +120,5 @@ public class TicketUI {
             e.printStackTrace();
         }
     }
+
 }

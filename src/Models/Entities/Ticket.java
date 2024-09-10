@@ -20,16 +20,18 @@ public class Ticket {
     private TicketStatus ticketStatus;
     private UUID contractId;
     private Connection connection;
+    private Contract contract ;
 
 
     // Constructor
-    public Ticket(UUID id, TransportType transportType, float purchasePrice, float salePrice, Timestamp saleDate, TicketStatus ticketStatus) {
+    public Ticket(UUID id, TransportType transportType, float purchasePrice, float salePrice, Timestamp saleDate, TicketStatus ticketStatus ,Contract contract) {
         this.id = id;
         this.transportType = transportType;
         this.purchasePrice = purchasePrice;
         this.salePrice = salePrice;
         this.saleDate = saleDate;
         this.ticketStatus = ticketStatus;
+        this.contract = contract ;
     }
 
     // constructor
@@ -67,6 +69,7 @@ public class Ticket {
     public UUID getContractId() {
         return contractId;
     }
+    public Contract getContract(){ return contract ;}
     //Setters
 
     public void setId(UUID id) {
@@ -96,5 +99,6 @@ public class Ticket {
     public void setContractId(UUID contractId) {
         this.contractId = contractId;
     }
+    public void setContract(Contract contract){this.contract = contract ;}
 
 }

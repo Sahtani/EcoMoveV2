@@ -9,7 +9,7 @@ public class Db {
 
     private static Db instance;
     private Connection connection;
-    private static final String DB_URL = "jdbc:postgresql://localhost:5432/EcoMove";
+    private static final String DB_URL = "jdbc:postgresql://localhost:5432/EcoMoveV2";
     private static final String USER = "postgres";
     private static final String PASS = "soumia";
 

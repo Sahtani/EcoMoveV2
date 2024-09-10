@@ -22,12 +22,13 @@ public class ClientDAO implements ClientDaoInterface {
 
     @Override
 
-    public boolean  createClient(Client client){
+    public boolean  addClient(Client client){
 
         String query= "INSERT INTO clients (id, first_name, last_name, email, phone_number) VALUES (?, ?, ?, ?, ?);";
 
         try {
            PreparedStatement stmt = connection.prepareStatement(query);
+           client.setId(UUID.randomUUID());
            stmt.setObject(1, client.getId());
            stmt.setString(2, client.getFirstName());
            stmt.setString(3, client.getLastName());

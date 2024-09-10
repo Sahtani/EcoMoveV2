@@ -89,7 +89,7 @@ import Dao.Implementations.TicketDAO;
 import Dao.Interfaces.ClientDaoInterface;
 import Dao.Interfaces.TicketDaoInterface;
 import Services.Implementations.ClientService;
-import Services.Implementations.TicketServie;
+import Services.Implementations.TicketService;
 import UI.ClientUI;
 import UI.ContractUI;
 import UI.PartnerUI;
@@ -109,7 +109,7 @@ public class Main {
         ClientDaoInterface clientDAO = new ClientDAO();
         ClientService clientService = new ClientService(clientDAO);
         TicketDaoInterface ticketDao = new TicketDAO() ;
-        TicketServie ticketServie = new TicketServie(ticketDao) ;
+        TicketService ticketServie = new TicketService(ticketDao) ;
         TicketUI ticketUI = new TicketUI(ticketServie) ;
 
 
