@@ -5,25 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="344748c2-3d50-4786-8540-848c5225b5ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Dao/Interfaces/ContractDaoInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/Interfaces/ContractServiceInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Config/Db.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Config/Db.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dao/Implementations/ClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dao/Implementations/ClientDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dao/Interfaces/ClientDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dao/Interfaces/ClientDaoInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Entities/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Entities/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Entities/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Entities/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Enums/ContractStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Enums/ContractStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Enums/DiscountType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Enums/DiscountType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Enums/OfferStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Enums/OfferStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Enums/TicketStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Enums/TicketStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Implementations/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Implementations/ClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Implementations/TicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Implementations/TicketService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Interfaces/ClientServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Interfaces/ClientServiceInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Interfaces/TicketServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Interfaces/TicketServiceInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/ClientUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/ClientUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/TicketUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/TicketUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/TicketValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/TicketValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dao/Implementations/ContractDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dao/Implementations/ContractDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dao/Interfaces/ContractDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dao/Interfaces/ContractDaoInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
