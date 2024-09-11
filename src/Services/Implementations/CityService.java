@@ -12,6 +12,7 @@ public class CityService implements ICityService {
      public  CityService(ICityDao iCityDao ){
          this.iCityDao = iCityDao ;
      }
+
     @Override
     public List<City> getAllCities() {
        return iCityDao.getAllCities();

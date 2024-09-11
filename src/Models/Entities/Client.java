@@ -24,9 +24,9 @@ public class Client {
 
 
     }
-//    public Client(){
-//
-//    }
+    public Client(){
+
+    }
 
     // getters and setters :
 

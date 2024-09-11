@@ -4,6 +4,7 @@ import Config.Db;
 import Models.Enums.TicketStatus;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.UUID;
 
 import Models.Enums.TransportType;
@@ -19,19 +20,25 @@ public class Ticket {
     private Timestamp saleDate;
     private TicketStatus ticketStatus;
     private UUID contractId;
+    private City departureCity;
+    private City destinationCity;
+    private LocalDate departureDate;
     private Connection connection;
-    private Contract contract ;
+    private Contract contract;
 
 
     // Constructor
-    public Ticket(UUID id, TransportType transportType, float purchasePrice, float salePrice, Timestamp saleDate, TicketStatus ticketStatus ,Contract contract) {
+    public Ticket(UUID id, TransportType transportType, float purchasePrice, float salePrice, Timestamp saleDate, TicketStatus ticketStatus, City departureCity, City destinationCity, LocalDate departureDate, Contract contract) {
         this.id = id;
         this.transportType = transportType;
         this.purchasePrice = purchasePrice;
         this.salePrice = salePrice;
         this.saleDate = saleDate;
         this.ticketStatus = ticketStatus;
-        this.contract = contract ;
+        this.departureCity = departureCity;
+        this.destinationCity = destinationCity;
+        this.departureDate = departureDate;
+        this.contract = contract;
     }
 
     // constructor
@@ -69,7 +76,18 @@ public class Ticket {
     public UUID getContractId() {
         return contractId;
     }
-    public Contract getContract(){ return contract ;}
+
+    public City getDepartureCity() {
+        return departureCity;
+    }
+
+    public void setDepartureCity(City departureCity) {
+        this.departureCity = departureCity;
+    }
+
+    public Contract getContract() {
+        return contract;
+    }
     //Setters
 
     public void setId(UUID id) {
@@ -96,9 +114,28 @@ public class Ticket {
         this.ticketStatus = ticketStatus;
     }
 
+    public City getDestinationCity() {
+        return destinationCity;
+    }
+
+    public void setDestinationCity(City destinationCity) {
+        this.destinationCity = destinationCity;
+    }
+
+    public LocalDate getDepartureDate() {
+        return departureDate;
+    }
+
+    public void setDepartureDate(LocalDate departureDate) {
+        this.departureDate = departureDate;
+    }
+
     public void setContractId(UUID contractId) {
         this.contractId = contractId;
     }
-    public void setContract(Contract contract){this.contract = contract ;}
+
+    public void setContract(Contract contract) {
+        this.contract = contract;
+    }
 
 }

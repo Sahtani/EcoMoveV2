@@ -30,4 +30,24 @@ CREATE TABLE Cities (
     cityName VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE journeys (
+    id SERIAL PRIMARY KEY,
+    departure_city VARCHAR(255) NOT NULL,
+    destination_city VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE reservation_ticket (
+    reservation_id INT NOT NULL,
+    ticket_id UUID NOT NULL,
+    PRIMARY KEY (reservation_id, ticket_id),
+    FOREIGN KEY (reservation_id) REFERENCES reservation(id),
+    FOREIGN KEY (ticket_id) REFERENCES ticket(id)
+);
+
+ALTER TABLE ticket
+ADD COLUMN journey_id INT;
+
+ALTER TABLE ticket
+ADD CONSTRAINT fk_journey
+FOREIGN KEY (journey_id) REFERENCES journeys(id);
 

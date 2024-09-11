@@ -14,6 +14,7 @@ public class ClientUI {
 
     private ClientServiceInterface clientService;
     private Scanner scanner;
+    private UUID loggedInClientId;
 
     // Constructor
 
@@ -40,6 +41,10 @@ public class ClientUI {
             switch (choice) {
                 case 1:
                     addClient();
+
+                    break;
+                case 2:
+                    updateClient();
 
                     break;
                 case 4:
@@ -119,8 +124,8 @@ public class ClientUI {
         }
     }
 
-            //login client :
-    public void loginClient(){
+    //login client :
+    public void loginClient() {
 
         String firstName, lastName, email;
         try {
@@ -132,7 +137,7 @@ public class ClientUI {
                 }
 
 
-            }while (!DataValidator.validateName(firstName));
+            } while (!DataValidator.validateName(firstName));
 
             do {
                 System.out.print("Enter last name: ");
@@ -154,7 +159,8 @@ public class ClientUI {
             Optional<Client> client = clientService.loginClient(firstName, lastName, email);
 
             if (client.isPresent()) {
-                System.out.println("Client logged in successfully: ");
+                this.loggedInClientId = client.get().getId();
+                System.out.println("Login successful. Welcome, " + client.get().getFirstName() + "!");
             } else {
                 System.out.println("Login failed. Client not found.");
             }
@@ -166,5 +172,83 @@ public class ClientUI {
 
 
     }
+
+
+    public void updateClient() {
+        if (!clientService.isLoggedIn()) {
+            System.out.println("You must be logged in to update your details.");
+            return;
+        }
+
+        UUID clientId = clientService.getLoggedInClientId();
+        String firstName = "", lastName = "", email = "";
+        int phoneNumber = 0;
+
+        try {
+            Optional<Client> existingClientOpt = clientService.loginClient(firstName, lastName, email);
+            if (!existingClientOpt.isPresent()) {
+                System.out.println("Client not found.");
+                return;
+            }
+
+            Client existingClient = existingClientOpt.get();
+
+            do {
+                System.out.print("Enter new first name (leave blank to keep current): ");
+                firstName = scanner.nextLine();
+                if (firstName.isEmpty()) {
+                    firstName = existingClient.getFirstName();
+                }
+            } while (!DataValidator.validateName(firstName));
+
+            do {
+                System.out.print("Enter new last name (leave blank to keep current): ");
+                lastName = scanner.nextLine();
+                if (lastName.isEmpty()) {
+                    lastName = existingClient.getLastName();
+                }
+            } while (!DataValidator.validateName(lastName));
+
+            do {
+                System.out.print("Enter new email (leave blank to keep current): ");
+                email = scanner.nextLine();
+                if (email.isEmpty()) {
+                    email = existingClient.getEmail();
+                }
+            } while (!DataValidator.validateEmail(email));
+
+            boolean validPhone = false;
+            do {
+                try {
+                    System.out.print("Enter new phone number (leave blank to keep current): ");
+                    String phoneInput = scanner.nextLine();
+                    if (phoneInput.isEmpty()) {
+                        phoneNumber = existingClient.getPhoneNumber();
+                    } else {
+                        phoneNumber = Integer.parseInt(phoneInput);
+                        if (DataValidator.validatePhoneNumber(phoneNumber)) {
+                            validPhone = true;
+                        } else {
+                            System.out.println("Invalid phone number. Please enter a valid 10-digit number.");
+                        }
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input. Please enter a valid phone number.");
+                }
+            } while (!validPhone);
+
+            Client updatedClient = new Client(clientId, firstName, lastName, email, phoneNumber);
+
+            boolean success = clientService.updateClient(updatedClient);
+            if (success) {
+                System.out.println("Client updated successfully.");
+            } else {
+                System.out.println("Failed to update client.");
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
 
 }

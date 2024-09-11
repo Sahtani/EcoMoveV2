@@ -10,6 +10,7 @@ import java.util.UUID;
 public class ClientService implements ClientServiceInterface {
 
     private ClientDaoInterface clientDao;
+    private UUID loggedInClientId;
 
     public ClientService(ClientDaoInterface clientDao) {
         this.clientDao = clientDao;
@@ -21,10 +22,23 @@ public class ClientService implements ClientServiceInterface {
         return clientDao.addClient(client);
     }
 
+    // upadet client ;
+
+    public boolean updateClient(Client client){
+        return clientDao.update(client);
+    }
+
     // login client :
     public Optional<Client> loginClient(String firstName, String lastName, String email) {
 
         return clientDao.findClient(firstName, lastName, email);
+    }
+
+    public boolean isLoggedIn() {
+        return loggedInClientId != null;
+    }
+    public UUID getLoggedInClientId() {
+        return loggedInClientId;
     }
 
 }
