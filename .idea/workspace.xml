@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="344748c2-3d50-4786-8540-848c5225b5ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Dao/Interfaces/ICityDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Services/Implementations/CityService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Implementations/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Implementations/ClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Implementations/ContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Implementations/ContractService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Interfaces/ClientServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Interfaces/ClientServiceInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Interfaces/PartnerServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Interfaces/PartnerServiceInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Interfaces/TicketServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Interfaces/TicketServiceInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/PromotionalOfferUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/PromotionalOfferUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/TicketUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/TicketUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dao/Implementations/CityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dao/Implementations/CityDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
