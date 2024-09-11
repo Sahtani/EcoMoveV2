@@ -6,6 +6,7 @@ import Models.Enums.TransportType;
 import Services.Implementations.TicketService;
 import Services.Interfaces.TicketServiceInterface;
 import Utils.TicketValidator;
+
 import java.sql.Timestamp;
 import java.util.Scanner;
 import java.util.UUID;
@@ -13,12 +14,13 @@ import java.util.UUID;
 public class TicketUI {
 
     private Scanner scanner;
-    private final TicketServiceInterface ticketServie    ;
+    private final TicketServiceInterface ticketServie;
 
     public TicketUI(TicketService ticketServie) {
         this.scanner = new Scanner(System.in);
         this.ticketServie = ticketServie;
     }
+
     public void indexTicket() {
         try {
             int choice;
@@ -41,11 +43,12 @@ public class TicketUI {
                         System.out.printf("---------------------------------------------%n");
                     }
                 }
-            }while(choice != 0);
-        }catch (Exception e) {
+            } while (choice != 0);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public void addTicket() {
         String transportType;
         float purchasePrice = 0;

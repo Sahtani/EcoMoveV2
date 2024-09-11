@@ -16,17 +16,15 @@ public class ClientService implements ClientServiceInterface {
     }
 
 
-
-
     @Override
     public boolean addClient(Client client) {
         return clientDao.addClient(client);
     }
 
     // login client :
-    public Optional<Client> loginClient(String firstName, String lastName, String email){
+    public Optional<Client> loginClient(String firstName, String lastName, String email) {
 
-        return clientDao.findClient(firstName, lastName,email);
+        return clientDao.findClient(firstName, lastName, email);
     }
 
 }

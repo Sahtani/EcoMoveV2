@@ -8,12 +8,12 @@ import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class ContractService  {
+public class ContractService {
 
     private ContractDAO contractDAO;
 
-    public ContractService(){
-        this.contractDAO=new ContractDAO();
+    public ContractService() {
+        this.contractDAO = new ContractDAO();
     }
 
     //Contract list :
