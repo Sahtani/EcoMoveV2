@@ -15,3 +15,19 @@ CREATE TABLE clients (
     email VARCHAR(150) UNIQUE NOT NULL,
     phone_number VARCHAR(20) NOT NULL
 );
+
+CREATE TABLE Reservation (
+    id INTEGER  PRIMARY KEY,
+    dateReservation DATE NOT NULL,
+    totalPrice DECIMAL(10, 2) NOT NULL,
+    status BOOLEAN NOT NULL ,
+	 clientId UUID NOT NULL,
+    FOREIGN KEY (clientId) REFERENCES Clients(id)
+);
+
+CREATE TABLE Cities (
+    id INTEGER PRIMARY KEY,
+    cityName VARCHAR(255) NOT NULL
+);
+
+
