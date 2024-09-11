@@ -13,35 +13,52 @@ import java.util.UUID;
 
 public class ClientDAO implements ClientDaoInterface {
 
-    private Connection connection ;
+    private Connection connection;
 
-    public ClientDAO()
-    {
+    public ClientDAO() {
         this.connection = Db.getInstance().getConnection();
     }
 
     @Override
 
-    public boolean  addClient(Client client){
+    public boolean addClient(Client client) {
 
-        String query= "INSERT INTO clients (id, first_name, last_name, email, phone_number) VALUES (?, ?, ?, ?, ?);";
+        String query = "INSERT INTO clients (id, first_name, last_name, email, phone_number) VALUES (?, ?, ?, ?, ?);";
 
         try {
-           PreparedStatement stmt = connection.prepareStatement(query);
-           client.setId(UUID.randomUUID());
-           stmt.setObject(1, client.getId());
-           stmt.setString(2, client.getFirstName());
-           stmt.setString(3, client.getLastName());
-           stmt.setString(4, client.getEmail());
-           stmt.setInt(5, client.getPhoneNumber());
+            PreparedStatement stmt = connection.prepareStatement(query);
+            client.setId(UUID.randomUUID());
+            stmt.setObject(1, client.getId());
+            stmt.setString(2, client.getFirstName());
+            stmt.setString(3, client.getLastName());
+            stmt.setString(4, client.getEmail());
+            stmt.setInt(5, client.getPhoneNumber());
 
-           int rows=stmt.executeUpdate();
-           return rows > 0 ;
+            int rows = stmt.executeUpdate();
+            return rows > 0;
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
+    }
+
+    // update client :
+    public boolean update(Client client) {
+       String sql = "UPDATE clients SET first_name = ? , last_name = ? , email = ?, phone_number = ?  ";
+       try {
+           PreparedStatement stmt = connection.prepareStatement(sql);
+           stmt.setString(2, client.getFirstName());
+           stmt.setString(3, client.getLastName());
+           stmt.setString(4, client.getEmail());
+           stmt.setInt(5, client.getPhoneNumber());
+           stmt.setObject(5, client.getId());
+           int rows = stmt.executeUpdate();
+           return rows > 0;
+
+       } catch (SQLException e) {
+           throw new RuntimeException(e);
+       }
     }
 
     //connection client
