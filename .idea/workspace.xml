@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="344748c2-3d50-4786-8540-848c5225b5ef" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Config/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/Config/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/Entities/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Entities/Reservation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +17,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
