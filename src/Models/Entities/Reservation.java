@@ -10,7 +10,9 @@ public class Reservation {
     private boolean status ;
     private Client client ;
 
+    public Reservation(){
 
+    }
     // getters and setters
     public int getId() {
         return id;
