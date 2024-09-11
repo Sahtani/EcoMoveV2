@@ -23,15 +23,9 @@ import Models.Enums.PartnerStatus;
         private LocalDate creationDate;
         private  TransportType transportType;
         private  PartnerStatus partnerStatus;
-        private ResultSet partners = null;
         private List<Contract> contracts;
-        private Connection connection;
 
 
-        // constructor
-        public Partner() {
-            this.connection = Db.getInstance().getConnection();
-        }
 
         public Partner(UUID id, String companyName, String commercialContact, String geographicalArea, String specialConditions, TransportType transportType, PartnerStatus partnerStatus) {
             this.id=id;

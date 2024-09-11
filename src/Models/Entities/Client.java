@@ -14,19 +14,19 @@ public class Client {
     private List<Reservation> reservations;
 
     //constructor :
-    public Client(UUID id, String firstName, String lastName, String email, int phoneNumber, List<Reservation> reservations){
+    public Client(UUID id, String firstName, String lastName, String email, int phoneNumber){
         this.id = id ;
         this.firstName = firstName ;
         this.lastName = lastName ;
         this.email = email ;
         this.phoneNumber = phoneNumber ;
-        this.reservations = reservations != null ? reservations : new ArrayList<>();
+//        this.reservations = reservations != null ? reservations : new ArrayList<>();
 
 
     }
-    public Client(){
-
-    }
+//    public Client(){
+//
+//    }
 
     // getters and setters :
 
