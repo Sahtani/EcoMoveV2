@@ -107,10 +107,10 @@ public class Main {
     public static void mainMenu() {
 
         PartnerUI partnerUI = new PartnerUI();
-        ContractServiceInterface contractServiceInterface = (ContractServiceInterface) new ContractService();
-        ContractUI contractUI = new ContractUI(contractServiceInterface);
+//        ContractServiceInterface contractServiceInterface = (ContractServiceInterface) new ContractService();
+//        ContractUI contractUI = new ContractUI(contractServiceInterface);
         ClientDaoInterface clientDAO = new ClientDAO();
-        ClientService clientService = new ClientService(clientDAO);
+       ClientService clientService = new ClientService(clientDAO);
         TicketDaoInterface ticketDao = new TicketDAO() ;
         TicketService ticketServie = new TicketService(ticketDao) ;
         TicketUI ticketUI = new TicketUI(ticketServie) ;
@@ -139,7 +139,7 @@ public class Main {
             switch (choice) {
 
                   case 1 ->  partnerUI.partnerMenu();
-                  case 2 -> contractUI.contractMenu();
+//                  case 2 -> contractUI.contractMenu();
                   case 3 -> clientUI.displayMenu();
                   case 4 -> ticketUI.indexTicket();
 

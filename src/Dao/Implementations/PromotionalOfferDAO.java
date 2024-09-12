@@ -79,6 +79,7 @@ public class PromotionalOfferDAO implements PromoDaoInterface {
             System.out.println("Error adding promotion: " + e.getMessage());
             e.printStackTrace();
         }
+        return  false ;
     }
 
     @Override

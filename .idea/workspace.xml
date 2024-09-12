@@ -6,12 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="344748c2-3d50-4786-8540-848c5225b5ef" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Config/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/Config/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Entities/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Entities/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Entities/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Entities/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Implementations/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Implementations/ClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Interfaces/ClientServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Interfaces/ClientServiceInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/ClientUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/ClientUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dao/Implementations/PartnerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dao/Implementations/PartnerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dao/Implementations/PromotionalOfferDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dao/Implementations/PromotionalOfferDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dao/Interfaces/PartnerDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dao/Interfaces/PartnerDaoInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Implementations/CityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Implementations/CityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Implementations/PartnerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Implementations/PartnerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/CityUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/CityUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/PartnerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/PartnerUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,21 +41,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/SOUMIA/IdeaProjects/EcoMove&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/SOUMIA/IdeaProjects/EcoMoveV2/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CityUI.executor": "Run",
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/SOUMIA/IdeaProjects/EcoMove",
+    "onboarding.tips.debug.path": "C:/Users/SOUMIA/IdeaProjects/EcoMoveV2/src/Main.java",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

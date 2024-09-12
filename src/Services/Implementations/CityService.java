@@ -8,13 +8,14 @@ import java.util.List;
 
 public class CityService implements ICityService {
 
-     ICityDao iCityDao ;
-     public  CityService(ICityDao iCityDao ){
-         this.iCityDao = iCityDao ;
+    private ICityDao cityDao;
+     public  CityService(ICityDao cityDao ){
+         this.cityDao = cityDao ;
      }
+     public CityService(){}
 
     @Override
     public List<City> getAllCities() {
-       return iCityDao.getAllCities();
+       return cityDao.getAllCities();
     }
 }

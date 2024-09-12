@@ -57,7 +57,7 @@ public class PartnerUI {
         PartnerStatus partnerStatus = PartnerStatus.valueOf(scanner.nextLine().strip().toUpperCase());
 
         UUID partnerId = UUID.randomUUID();
-        String success = partnerService.addPartner(partnerId, companyName, commercialContact, geographicalZone ,specialConditions , transportType, partnerStatus);
+        boolean success = partnerService.addPartner(partnerId, companyName, commercialContact, geographicalZone ,specialConditions , transportType, partnerStatus);
 
     }
 
@@ -98,7 +98,7 @@ public class PartnerUI {
         System.out.print("Enter Partner ID: ");
         UUID id = UUID.fromString(scanner.nextLine().strip());
 
-        boolean success = Boolean.parseBoolean(partnerService.deletePartner(id));
+        boolean success = partnerService.deletePartner(id);
 
         if (success) {
             System.out.println("Partner deleted successfully.");

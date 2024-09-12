@@ -24,10 +24,10 @@ public class PartnerService {
 
     // add Partner :
 
-    public String  addPartner(UUID id, String companyName, String commercialContact, String geographicalArea,
+    public boolean  addPartner(UUID id, String companyName, String commercialContact, String geographicalArea,
                               String specialConditions, TransportType transportType, PartnerStatus partnerStatus) {
         Partner partner=new Partner(id, companyName, commercialContact, geographicalArea, specialConditions, transportType,partnerStatus);
-       return partnerDAO.create(partner);
+       return partnerDAO.createPartner(partner);
 
 
     }
@@ -37,12 +37,12 @@ public class PartnerService {
     public boolean updatePartner(UUID id, String companyName, String commercialContact, String geographicalArea,
                                 String specialConditions, TransportType transportType, PartnerStatus partnerStatus) {
         Partner partner = new Partner(id, companyName, commercialContact, geographicalArea, specialConditions, transportType, partnerStatus);
-        return partnerDAO.update(partner);
+        return partnerDAO.updatePartner(partner);
     }
 
     // Mehtode to delete partner :
 
-    public String deletePartner(UUID id) {
-        return partnerDAO.delete(id);
+    public boolean deletePartner(UUID id) {
+        return partnerDAO.deletePartner(id);
     }
 }

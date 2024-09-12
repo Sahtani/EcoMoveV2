@@ -94,7 +94,7 @@ public class PartnerDAO implements PartnerDaoInterface {
 
     //Mehtode to delete partner :
     @Override
-    public boolean deletePartner(int id) {
+    public boolean deletePartner(UUID id) {
 
             try {
                 PreparedStatement pstmt = connection.prepareStatement("DELETE FROM partners WHERE id = ?");
